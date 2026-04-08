@@ -1,0 +1,56 @@
+:root {
+  --bg-color: #0b0f19;
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --accent-blue: #3b82f6;
+  --accent-purple: #8b5cf6;
+  --nav-bg: rgba(11, 15, 25, 0.8);
+  --card-bg: rgba(30, 35, 50, 0.4);
+  --card-border: rgba(255, 255, 255, 0.05);
+  --card-hover-bg: rgba(40, 45, 65, 0.8);
+  --btn-sec-border: rgba(255, 255, 255, 0.2);
+  --btn-sec-hover-bg: rgba(255, 255, 255, 0.05);
+  --btn-sec-hover-border: rgba(255, 255, 255, 0.5);
+  --glow-blur-1: rgba(77, 164, 255, 0.4);
+  --glow-blur-2: rgba(139, 92, 246, 0.4);
+  --icon-hover-shadow: rgba(139, 92, 246, 0.8);
+}
+
+.light {
+  --bg-color: #f8fafc;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --accent-blue: #2563eb;
+  --accent-purple: #7c3aed;
+  --nav-bg: rgba(248, 250, 252, 0.8);
+  --card-bg: #e2e8f0;
+  --card-border: rgba(0, 0, 0, 0.05);
+  --card-hover-bg: #ffffff;
+  --btn-sec-border: rgba(0, 0, 0, 0.2);
+  --btn-sec-hover-bg: rgba(0, 0, 0, 0.05);
+  --btn-sec-hover-border: rgba(0, 0, 0, 0.5);
+  --glow-blur-1: rgba(37, 99, 235, 0.2);
+  --glow-blur-2: rgba(124, 58, 237, 0.2);
+  --icon-hover-shadow: rgba(124, 58, 237, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-outfit), sans-serif;
+  letter-spacing: -0.01em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
