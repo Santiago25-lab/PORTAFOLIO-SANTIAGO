@@ -26,9 +26,21 @@ const AntigravityInner = ({
   const { viewport } = useThree();
   const dummy = useMemo(() => new THREE.Object3D(), []);
 
-  const lastMousePos = useRef({ x: 0, y: 0 });
+  const globalMousePos = useRef({ x: 0, y: 0 });
   const lastMouseMoveTime = useRef(0);
   const virtualMouse = useRef({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      globalMousePos.current = {
+        x: (e.clientX / window.innerWidth) * 2 - 1,
+        y: -(e.clientY / window.innerHeight) * 2 + 1
+      };
+      lastMouseMoveTime.current = Date.now();
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   const particles = useMemo(() => {
     const temp = [];
@@ -75,17 +87,10 @@ const AntigravityInner = ({
     const mesh = meshRef.current;
     if (!mesh) return;
 
-    const { viewport: v, pointer: m } = state;
+    const { viewport: v } = state;
 
-    const mouseDist = Math.sqrt(Math.pow(m.x - lastMousePos.current.x, 2) + Math.pow(m.y - lastMousePos.current.y, 2));
-
-    if (mouseDist > 0.001) {
-      lastMouseMoveTime.current = Date.now();
-      lastMousePos.current = { x: m.x, y: m.y };
-    }
-
-    let destX = (m.x * v.width) / 2;
-    let destY = (m.y * v.height) / 2;
+    let destX = (globalMousePos.current.x * v.width) / 2;
+    let destY = (globalMousePos.current.y * v.height) / 2;
 
     if (autoAnimate && Date.now() - lastMouseMoveTime.current > 2000) {
       const time = state.clock.getElapsedTime();
@@ -171,19 +176,10 @@ const AntigravityInner = ({
 };
 
 const Antigravity = (props: any) => {
-  const [eventSource, setEventSource] = useState<HTMLElement | null>(null);
-
-  useEffect(() => {
-    // Allows the canvas to track mouse movements over the entire body,
-    // even if it's sitting behind other elements with pointer-events.
-    setEventSource(document.body);
-  }, []);
-
   return (
     <Canvas 
       camera={{ position: [0, 0, 50], fov: 35 }} 
       style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
-      eventSource={eventSource || undefined}
     >
       <AntigravityInner {...props} />
     </Canvas>
