@@ -1,0 +1,185 @@
+.bentoContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(180px, auto);
+  gap: 1.5rem;
+  margin-top: 3rem;
+  width: 100%;
+}
+
+.bentoCard {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.bentoCard:hover {
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+.span2 {
+  grid-column: span 2;
+}
+
+.span3 {
+  grid-column: span 3;
+}
+
+.span4 {
+  grid-column: span 4;
+}
+
+.row2 {
+  grid-row: span 2;
+}
+
+/* Card titles */
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cardIcon {
+  color: var(--accent-purple);
+  font-size: 1.5rem;
+}
+
+.cardText {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.cardText + .cardText {
+  margin-top: 1rem;
+}
+
+/* Photo Slider inside Intro Card */
+/* Gallery Card - full bleed photo slider */
+.galleryCard {
+  padding: 0 !important;
+  height: 100%;
+}
+
+/* Force SpotlightCard's inner wrapper to fill height */
+.galleryCard > div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.sliderContainer {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 350px;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background: rgba(0,0,0,0.3);
+}
+
+.sliderImage {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* Personal Info List */
+.infoList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.infoIcon {
+  background: rgba(139, 92, 246, 0.1);
+  color: var(--accent-purple);
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1rem;
+}
+
+/* Interests Pills */
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.pill {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--accent-blue);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+/* Quote Area - ShinyText */
+.quoteArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.quoteShiny {
+  font-size: 2rem;
+  font-weight: 800;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .bentoContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .span3, .span4 {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .bentoContainer {
+    grid-template-columns: 1fr;
+  }
+  .span2, .span3, .span4 {
+    grid-column: span 1;
+  }
+  .row2 {
+    grid-row: span 1;
+  }
+  .quoteShiny {
+    font-size: 1.3rem;
+  }
+}
