@@ -89,7 +89,7 @@ export const dictionaries = {
     footer: {
       madeWith: "Diseñado y construido con",
       by: "por Santiago",
-      rights: "Todos los derechos reservado."
+      rights: "Todos los derechos reservados."
     }
   },
   en: {
