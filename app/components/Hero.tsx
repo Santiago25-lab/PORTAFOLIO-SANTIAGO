@@ -12,7 +12,7 @@ export default function Hero() {
   return (
     <section className={styles.hero}>
       <div className={styles.heroContent}>
-        <motion.div 
+        <motion.div
           className={styles.heroText}
           initial={{ x: -50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -33,13 +33,10 @@ export default function Hero() {
             {t.hero.description}
           </p>
 
-          <div className={styles.buttonGroup}>
-            <button className={styles.primaryBtn}>{t.hero.primaryBtn}</button>
-            <button className={styles.secondaryBtn}>{t.hero.secondaryBtn}</button>
-          </div>
+
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className={styles.heroImageContainer}
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}

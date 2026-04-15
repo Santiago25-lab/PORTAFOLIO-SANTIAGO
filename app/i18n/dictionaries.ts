@@ -9,7 +9,7 @@ export const dictionaries = {
     hero: {
       greeting: "Hola, mi nombre es",
       name: "Santiago.",
-      role: "Ingeniero de Software.",
+      role: "Estudiante Ingenieria de Software.",
       description: "Me especializo en crear (y ocasionalmente diseñar) experiencias digitales excepcionales. Actualmente estoy enfocado en construir productos accesibles y centrados en el usuario.",
       primaryBtn: "Ver mis trabajos",
       secondaryBtn: "Contactarme",
@@ -102,7 +102,7 @@ export const dictionaries = {
     hero: {
       greeting: "Hi, my name is",
       name: "Santiago.",
-      role: "Software Engineer.",
+      role: " Student Software Engineer.",
       description: "I specialize in building (and occasionally designing) exceptional digital experiences. Currently, I'm focused on building accessible, human-centered products.",
       primaryBtn: "Check out my work",
       secondaryBtn: "Contact me",
