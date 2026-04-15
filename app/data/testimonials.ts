@@ -54,7 +54,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: "t3",
     name: "Laura Ospina",               // ← REEMPLAZA con nombre real
-    role: "Docente · Universidad CESMAG", // ← REEMPLAZA con cargo e institución
+    role: "Docente · Universidad Cooperativa", // ← REEMPLAZA con cargo e institución
     initials: "LO",                       // ← REEMPLAZA con iniciales (fallback si no hay foto)
     avatarColor: "linear-gradient(135deg, #10b981, #3b82f6)",
     // photo: "/testimonials/laura.jpg",  // ← DESCOMENTA y agrega la ruta de la foto
