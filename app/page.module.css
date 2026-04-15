@@ -24,9 +24,22 @@
   color: var(--accent-blue);
 }
 
+.navContent {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
 .navLinks {
   display: flex;
   gap: 2rem;
+  align-items: center;
+}
+
+.navControls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .navLink {

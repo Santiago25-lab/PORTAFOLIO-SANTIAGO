@@ -6,6 +6,7 @@ import { useLanguage } from "../context/LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import ShinyText from "./ShinyText";
+import { User, MapPin, GraduationCap, Briefcase, Music, Rocket, Palette, Brain, Target, Zap } from "lucide-react";
 
 const photos = ["/foto1.jpg", "/foto2.jpg", "/foto3.jpg"];
 
@@ -150,16 +151,16 @@ function ExpandedContent({
     case "personal":
       return (
         <>
-          <h2 className={styles.expandedTitle}>🧍‍♂️ {m.personal.title}</h2>
+          <h2 className={styles.expandedTitle} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}><User size={28} /> {m.personal.title}</h2>
           <div className={styles.personalGrid}>
             {[
-              { emoji: "📍", label: "Ubicación", value: m.personal.location },
-              { emoji: "🎓", label: "Estudios", value: m.personal.studies },
-              { emoji: "💼", label: "Enfoque", value: m.personal.focus },
-              { emoji: "🎵", label: "Historia", value: m.personal.background },
-            ].map(({ emoji, label, value }) => (
+              { icon: <MapPin size={24} />, label: "Ubicación", value: m.personal.location },
+              { icon: <GraduationCap size={24} />, label: "Estudios", value: m.personal.studies },
+              { icon: <Briefcase size={24} />, label: "Enfoque", value: m.personal.focus },
+              { icon: <Music size={24} />, label: "Historia", value: m.personal.background },
+            ].map(({ icon, label, value }) => (
               <div key={label} className={styles.personalItem}>
-                <span className={styles.personalEmoji}>{emoji}</span>
+                <span className={styles.personalEmoji} style={{ display: "flex", alignItems: "center", justifyContent: "center", color: "#8b5cf6" }}>{icon}</span>
                 <div>
                   <p className={styles.personalLabel}>{label}</p>
                   <p className={styles.personalValue}>{value}</p>
@@ -173,7 +174,7 @@ function ExpandedContent({
     case "whatIDo":
       return (
         <>
-          <h2 className={styles.expandedTitle}>🚀 {m.whatIDo.title}</h2>
+          <h2 className={styles.expandedTitle} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}><Rocket size={28} /> {m.whatIDo.title}</h2>
           <p className={styles.expandedText}>{m.whatIDo.p1}</p>
           <div className={styles.expandedHighlight}>
             <p>{m.whatIDo.p2}</p>
@@ -184,7 +185,7 @@ function ExpandedContent({
     case "interests":
       return (
         <>
-          <h2 className={styles.expandedTitle}>🎨 {m.interests.title}</h2>
+          <h2 className={styles.expandedTitle} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}><Palette size={28} /> {m.interests.title}</h2>
           <div className={styles.expandedPills}>
             {m.interests.items.map((item: string) => (
               <motion.span
@@ -203,7 +204,7 @@ function ExpandedContent({
     case "mindset":
       return (
         <>
-          <h2 className={styles.expandedTitle}>🧠 {m.mindset.title}</h2>
+          <h2 className={styles.expandedTitle} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}><Brain size={28} /> {m.mindset.title}</h2>
           <blockquote className={styles.expandedBlockquote}>
             {m.mindset.p1}
           </blockquote>
@@ -214,7 +215,7 @@ function ExpandedContent({
     case "vision":
       return (
         <>
-          <h2 className={styles.expandedTitle}>🎯 {m.vision.title}</h2>
+          <h2 className={styles.expandedTitle} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}><Target size={28} /> {m.vision.title}</h2>
           <p className={styles.expandedText}>{m.vision.p1}</p>
           <p className={styles.expandedText}>{m.vision.p2}</p>
         </>
@@ -223,7 +224,7 @@ function ExpandedContent({
     case "freetime":
       return (
         <>
-          <h2 className={styles.expandedTitle}>⚡ {m.freetime.title}</h2>
+          <h2 className={styles.expandedTitle} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}><Zap size={28} /> {m.freetime.title}</h2>
           <p className={styles.expandedText}>{m.freetime.text}</p>
         </>
       );
@@ -323,22 +324,22 @@ export default function MoreAboutMe() {
           onClick={() => open("personal")}
           cardStyle={hiddenWhenSelected("personal")}
         >
-          <h3 className={styles.cardTitle}>🧍‍♂️ {m.personal.title}</h3>
+          <h3 className={styles.cardTitle} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}><User size={20} /> {m.personal.title}</h3>
           <ul className={styles.infoList}>
             <li className={styles.infoItem}>
-              <span className={styles.infoIcon}>📍</span>
+              <span className={styles.infoIcon} style={{ display: "flex", alignItems: "center", justifyContent: "center", color: "#8b5cf6" }}><MapPin size={16} /></span>
               {m.personal.location}
             </li>
             <li className={styles.infoItem}>
-              <span className={styles.infoIcon}>🎓</span>
+              <span className={styles.infoIcon} style={{ display: "flex", alignItems: "center", justifyContent: "center", color: "#8b5cf6" }}><GraduationCap size={16} /></span>
               {m.personal.studies}
             </li>
             <li className={styles.infoItem}>
-              <span className={styles.infoIcon}>💼</span>
+              <span className={styles.infoIcon} style={{ display: "flex", alignItems: "center", justifyContent: "center", color: "#8b5cf6" }}><Briefcase size={16} /></span>
               {m.personal.focus}
             </li>
             <li className={styles.infoItem}>
-              <span className={styles.infoIcon}>🎵</span>
+              <span className={styles.infoIcon} style={{ display: "flex", alignItems: "center", justifyContent: "center", color: "#8b5cf6" }}><Music size={16} /></span>
               {m.personal.background}
             </li>
           </ul>
@@ -354,7 +355,7 @@ export default function MoreAboutMe() {
           onClick={() => open("whatIDo")}
           cardStyle={hiddenWhenSelected("whatIDo")}
         >
-          <h3 className={styles.cardTitle}>🚀 {m.whatIDo.title}</h3>
+          <h3 className={styles.cardTitle} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}><Rocket size={20} /> {m.whatIDo.title}</h3>
           <p className={styles.cardText}>{m.whatIDo.p1}</p>
           <p className={styles.cardText}>
             <strong>{m.whatIDo.p2}</strong>
@@ -371,7 +372,7 @@ export default function MoreAboutMe() {
           onClick={() => open("interests")}
           cardStyle={hiddenWhenSelected("interests")}
         >
-          <h3 className={styles.cardTitle}>🎨 {m.interests.title}</h3>
+          <h3 className={styles.cardTitle} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}><Palette size={20} /> {m.interests.title}</h3>
           <div className={styles.pills}>
             {m.interests.items.map((item: string) => (
               <span key={item} className={styles.pill}>
@@ -391,7 +392,7 @@ export default function MoreAboutMe() {
           onClick={() => open("mindset")}
           cardStyle={hiddenWhenSelected("mindset")}
         >
-          <h3 className={styles.cardTitle}>🧠 {m.mindset.title}</h3>
+          <h3 className={styles.cardTitle} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}><Brain size={20} /> {m.mindset.title}</h3>
           <p className={styles.cardText}>{m.mindset.p1}</p>
           <p className={styles.cardText}>{m.mindset.p2}</p>
           <div className={styles.expandHint}>
@@ -406,7 +407,7 @@ export default function MoreAboutMe() {
           onClick={() => open("vision")}
           cardStyle={hiddenWhenSelected("vision")}
         >
-          <h3 className={styles.cardTitle}>🎯 {m.vision.title}</h3>
+          <h3 className={styles.cardTitle} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}><Target size={20} /> {m.vision.title}</h3>
           <p className={styles.cardText}>{m.vision.p1}</p>
           <p className={styles.cardText}>{m.vision.p2}</p>
           <div className={styles.expandHint}>
@@ -421,7 +422,7 @@ export default function MoreAboutMe() {
           onClick={() => open("freetime")}
           cardStyle={hiddenWhenSelected("freetime")}
         >
-          <h3 className={styles.cardTitle}>⚡ {m.freetime.title}</h3>
+          <h3 className={styles.cardTitle} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}><Zap size={20} /> {m.freetime.title}</h3>
           <p className={styles.cardText}>{m.freetime.text}</p>
           <div className={styles.expandHint}>
             <span className={styles.expandIcon}>⤢</span>

@@ -18,21 +18,25 @@ export default function Navbar() {
       transition={{ duration: 0.5 }}
     >
       <div className={styles.logo}>Portafolio Personal</div>
-      <div className={styles.navLinks}>
-        <Link href="/" className={`${styles.navLink}`}>
-          {t.nav.home}
-        </Link>
-        <Link href="#about" className={styles.navLink}>
-          {t.nav.about}
-        </Link>
-        <Link href="#projects" className={styles.navLink}>
-          {t.nav.projects}
-        </Link>
-        <Link href="#contact" className={styles.navLink}>
-          {t.nav.contact}
-        </Link>
-        <LanguageToggle />
-        <ThemeToggle />
+      <div className={styles.navContent}>
+        <div className={styles.navLinks}>
+          <Link href="/" className={`${styles.navLink}`}>
+            {t.nav.home}
+          </Link>
+          <Link href="#about" className={styles.navLink}>
+            {t.nav.about}
+          </Link>
+          <Link href="#projects" className={styles.navLink}>
+            {t.nav.projects}
+          </Link>
+          <Link href="#contact" className={styles.navLink}>
+            {t.nav.contact}
+          </Link>
+        </div>
+        <div className={styles.navControls}>
+          <LanguageToggle />
+          <ThemeToggle />
+        </div>
       </div>
     </motion.nav>
   );

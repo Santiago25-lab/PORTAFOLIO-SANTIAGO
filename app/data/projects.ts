@@ -11,15 +11,15 @@ export interface Project {
 export const PROJECTS: Project[] = [
   {
     id: "ecommerce",
-    title: { es: "E-Commerce Moderno", en: "Modern E-Commerce" },
+    title: { es: "Landing Page Clon Mercado Libre", en: "Mercado Libre Clone Landing Page" },
     description: { 
-      es: "Una plataforma de comercio electrónico completamente funcional con carrito de compras, integración de pagos y panel de administración.",
-      en: "A fully functional e-commerce platform with a shopping cart, payment integration, and an admin panel."
+      es: "Clon de la página principal de Mercado Libre, replicando su interfaz de usuario y diseño.",
+      en: "Clone of the Mercado Libre landing page, replicating its user interface and design."
     },
-    image: "/project-placeholder.png", // Use the generated placeholder
-    technologies: ["React", "Node.js", "MongoDB"],
-    githubUrl: "",
-    liveUrl: "https://github.com/Santiago25-lab/Mercado_Libre_Clon"
+    image: "/mi-proyecto1.jpg",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    githubUrl: "https://github.com/Santiago25-lab/Mercado_Libre_Clon",
+    liveUrl: ""
   },
   {
     id: "task-app",
