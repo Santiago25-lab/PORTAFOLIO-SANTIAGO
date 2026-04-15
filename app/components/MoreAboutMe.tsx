@@ -8,7 +8,7 @@ import Image from "next/image";
 import ShinyText from "./ShinyText";
 import { User, MapPin, GraduationCap, Briefcase, Music, Rocket, Palette, Brain, Target, Zap } from "lucide-react";
 
-const photos = ["/foto1.jpg", "/foto2.jpg", "/foto3.jpg"];
+const photos = ["/foto1.jpg", "/foto2.jpg", "/foto3.jpg", "/foto4.jpg", "/foto5.jpg"];
 
 const SPOTLIGHT_COLOR = "rgba(139, 92, 246, 0.22)";
 

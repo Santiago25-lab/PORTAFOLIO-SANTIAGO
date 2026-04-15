@@ -33,7 +33,7 @@ export const dictionaries = {
         location: "Pasto, Colombia",
         studies: "Ingeniería de Software",
         focus: "Desarrollo, diseño y emprendimiento",
-        background: "Ex músico"
+        background: "Músico"
       },
       whatIDo: {
         title: "A qué me dedico",
@@ -126,7 +126,7 @@ export const dictionaries = {
         location: "Pasto, Colombia",
         studies: "Software Engineering",
         focus: "Dev, design & entrepreneurship",
-        background: "Ex musician"
+        background: "Musician"
       },
       whatIDo: {
         title: "What I do",
