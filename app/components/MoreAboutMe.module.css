@@ -1,48 +1,120 @@
+/* ──────────────────────────────────────────────────────────────
+   GRID LAYOUT
+   ────────────────────────────────────────────────────────────── */
 .bentoContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: minmax(180px, auto);
-  gap: 1.5rem;
+  gap: 1.25rem;
   margin-top: 3rem;
   width: 100%;
 }
 
+.span2 { grid-column: span 2; }
+.span3 { grid-column: span 3; }
+.span4 { grid-column: span 4; }
+.row2  { grid-row: span 2; }
+
+/* ──────────────────────────────────────────────────────────────
+   CARD BASE
+   ────────────────────────────────────────────────────────────── */
 .bentoCard {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 1.5rem;
-  padding: 2rem;
+  padding: 1.75rem;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   position: relative;
-  transition: all 0.3s ease;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .bentoCard:hover {
   border-color: rgba(139, 92, 246, 0.4);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.12), 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-.span2 {
-  grid-column: span 2;
+/* Spotlight radial gradient overlay (follows cursor) */
+.spotlightOverlay {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: 0;
+  transition: opacity 0.4s ease;
 }
 
-.span3 {
-  grid-column: span 3;
+/* Content wrapper — sits above the spotlight overlay */
+.cardContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
 }
 
-.span4 {
-  grid-column: span 4;
+/* ──────────────────────────────────────────────────────────────
+   EXPAND HINT  (top-right icon, visible on hover)
+   ────────────────────────────────────────────────────────────── */
+.expandHint {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.25s ease, background 0.2s ease;
 }
 
-.row2 {
-  grid-row: span 2;
+.bentoCard:hover .expandHint {
+  opacity: 1;
 }
 
-/* Card titles */
+.expandHint:hover {
+  background: rgba(139, 92, 246, 0.25);
+}
+
+.expandIcon {
+  font-size: 14px;
+  color: #a78bfa;
+  line-height: 1;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   GALLERY (full-bleed slider)
+   ────────────────────────────────────────────────────────────── */
+.galleryCard {
+  padding: 0 !important;
+}
+
+.sliderContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.sliderImage {
+  object-fit: cover;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   CARD CONTENT
+   ────────────────────────────────────────────────────────────── */
 .cardTitle {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 1rem;
@@ -51,71 +123,35 @@
   gap: 0.5rem;
 }
 
-.cardIcon {
-  color: var(--accent-purple);
-  font-size: 1.5rem;
-}
-
 .cardText {
   color: var(--text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 0.875rem;
+  line-height: 1.65;
 }
 
 .cardText + .cardText {
-  margin-top: 1rem;
+  margin-top: 0.75rem;
 }
 
-/* Photo Slider inside Intro Card */
-/* Gallery Card - full bleed photo slider */
-.galleryCard {
-  padding: 0 !important;
-  height: 100%;
-}
-
-/* Force SpotlightCard's inner wrapper to fill height */
-.galleryCard > div {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.sliderContainer {
-  position: relative;
-  width: 100%;
-  flex: 1;
-  min-height: 350px;
-  border-radius: 1.5rem;
-  overflow: hidden;
-  background: rgba(0,0,0,0.3);
-}
-
-.sliderImage {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-
-/* Personal Info List */
+/* Info list (Personal card) */
 .infoList {
   list-style: none;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
 .infoItem {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
   color: var(--text-secondary);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .infoIcon {
-  background: rgba(139, 92, 246, 0.1);
-  color: var(--accent-purple);
+  background: rgba(139, 92, 246, 0.12);
   width: 2rem;
   height: 2rem;
   display: flex;
@@ -123,27 +159,30 @@
   justify-content: center;
   border-radius: 50%;
   font-size: 1rem;
+  flex-shrink: 0;
 }
 
-/* Interests Pills */
+/* Pills (Interests card) */
 .pills {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 0.5rem;
   margin-top: 0.5rem;
 }
 
 .pill {
   background: rgba(59, 130, 246, 0.1);
   color: var(--accent-blue);
-  padding: 0.5rem 1rem;
+  padding: 0.35rem 0.8rem;
   border-radius: 2rem;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
   border: 1px solid rgba(59, 130, 246, 0.2);
 }
 
-/* Quote Area - ShinyText */
+/* ──────────────────────────────────────────────────────────────
+   QUOTE AREA
+   ────────────────────────────────────────────────────────────── */
 .quoteArea {
   display: flex;
   justify-content: center;
@@ -153,18 +192,300 @@
 }
 
 .quoteShiny {
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 800;
   font-style: italic;
   line-height: 1.4;
 }
 
-/* Responsive adjustments */
+/* ──────────────────────────────────────────────────────────────
+   BACKDROP
+   ────────────────────────────────────────────────────────────── */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   MODAL WRAPPER  (centers the expanded card)
+   ────────────────────────────────────────────────────────────── */
+.modalWrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  pointer-events: none; /* let backdrop clicks fall through */
+}
+
+/* ──────────────────────────────────────────────────────────────
+   EXPANDED CARD  (the modal state)
+   ────────────────────────────────────────────────────────────── */
+.expandedCard {
+  pointer-events: all;
+  width: min(680px, 100%);
+  max-height: 88vh;
+  overflow-y: auto;
+  cursor: default;
+
+  background: rgba(14, 18, 32, 0.97);
+  border-color: rgba(139, 92, 246, 0.35) !important;
+  box-shadow:
+    0 0 0 1px rgba(139, 92, 246, 0.2),
+    0 0 60px rgba(139, 92, 246, 0.18),
+    0 40px 100px rgba(0, 0, 0, 0.6);
+
+  /* Remove the grid card hover overrides */
+  transition: none !important;
+}
+
+.expandedCard:hover {
+  border-color: rgba(139, 92, 246, 0.35) !important;
+  box-shadow:
+    0 0 0 1px rgba(139, 92, 246, 0.2),
+    0 0 60px rgba(139, 92, 246, 0.18),
+    0 40px 100px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Custom scrollbar */
+.expandedCard::-webkit-scrollbar { width: 5px; }
+.expandedCard::-webkit-scrollbar-track { background: transparent; }
+.expandedCard::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.4);
+  border-radius: 3px;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   CLOSE BUTTON
+   ────────────────────────────────────────────────────────────── */
+.closeBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+  z-index: 10;
+}
+
+.closeBtn:hover {
+  background: rgba(139, 92, 246, 0.2);
+  border-color: rgba(139, 92, 246, 0.5);
+  color: #fff;
+  transform: scale(1.08);
+}
+
+/* ──────────────────────────────────────────────────────────────
+   EXPANDED INNER  (padded content area)
+   ────────────────────────────────────────────────────────────── */
+.expandedInner {
+  padding: 0.5rem 0.25rem;
+}
+
+.expandedTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.expandedText {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.expandedHighlight {
+  background: rgba(139, 92, 246, 0.1);
+  border-left: 3px solid #8b5cf6;
+  border-radius: 0 10px 10px 0;
+  padding: 1rem 1.25rem;
+  margin-top: 1rem;
+}
+
+.expandedHighlight p {
+  color: #c084fc;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+.expandedBlockquote {
+  border-left: 3px solid #8b5cf6;
+  padding: 1rem 1.25rem;
+  margin: 0 0 1.25rem;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--text-primary);
+  background: rgba(139, 92, 246, 0.07);
+  border-radius: 0 10px 10px 0;
+  line-height: 1.7;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   EXPANDED PILLS (Interests)
+   ────────────────────────────────────────────────────────────── */
+.expandedPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.expandedPill {
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  border-radius: 2rem;
+  padding: 0.55rem 1.25rem;
+  font-size: 0.9375rem;
+  color: #c084fc;
+  cursor: default;
+  transition: background 0.2s, border-color 0.2s;
+  display: inline-block;
+}
+
+.expandedPill:hover {
+  background: rgba(139, 92, 246, 0.22);
+  border-color: rgba(139, 92, 246, 0.55);
+}
+
+/* ──────────────────────────────────────────────────────────────
+   EXPANDED PERSONAL GRID
+   ────────────────────────────────────────────────────────────── */
+.personalGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.personalItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  padding: 1rem 1.125rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  transition: background 0.2s;
+}
+
+.personalItem:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.personalEmoji {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.personalLabel {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 3px;
+}
+
+.personalValue {
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   EXPANDED GALLERY
+   ────────────────────────────────────────────────────────────── */
+.galleryExpanded {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.galleryMainPhoto {
+  position: relative;
+  height: clamp(220px, 42vh, 420px);
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.galleryControls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding-bottom: 0.25rem;
+}
+
+.galleryBtn {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: #c084fc;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.galleryBtn:hover {
+  background: rgba(139, 92, 246, 0.25);
+  transform: scale(1.06);
+}
+
+.galleryDots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s ease;
+}
+
+.dotActive {
+  width: 24px;
+  border-radius: 4px;
+  background: #8b5cf6;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   RESPONSIVE
+   ────────────────────────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .bentoContainer {
     grid-template-columns: repeat(2, 1fr);
   }
-  .span3, .span4 {
+  .span3,
+  .span4 {
     grid-column: span 2;
   }
 }
@@ -172,14 +493,20 @@
 @media (max-width: 640px) {
   .bentoContainer {
     grid-template-columns: 1fr;
+    grid-auto-rows: minmax(140px, auto);
   }
-  .span2, .span3, .span4 {
+  .span2,
+  .span3,
+  .span4 {
     grid-column: span 1;
   }
   .row2 {
     grid-row: span 1;
   }
   .quoteShiny {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+  }
+  .personalGrid {
+    grid-template-columns: 1fr;
   }
 }

@@ -7,6 +7,10 @@
   margin: 0 auto;
 }
 
+/* Navbar — migrado a Tailwind en Navbar.tsx */
+
+/* Hero — migrado a Tailwind en Hero.tsx */
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -196,22 +200,19 @@
 
 @media (max-width: 1024px) {
   .heroContent {
-    flex-direction: column-reverse; /* image on top of text on mobile */
+    flex-direction: column-reverse;
     text-align: center;
     gap: 3rem;
   }
-  
   .heroText {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  
   .buttonGroup {
     justify-content: center;
     width: 100%;
   }
-
   .description {
     text-align: center;
   }
@@ -237,6 +238,7 @@
     width: 100%;
   }
 }
+
 
 .about {
   padding: 8rem 0;
@@ -358,10 +360,17 @@
 /* Contact Section */
 .contact {
   padding: 8rem 0;
-  display: flex;
-  justify-content: center;
+  width: 100%;
+}
+
+/* ── 2-column layout ── */
+.contactLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
   align-items: center;
   width: 100%;
+  min-height: 600px;
 }
 
 .contactCard {
@@ -370,8 +379,7 @@
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 1.5rem;
-  padding: 4rem 2rem;
-  max-width: 800px;
+  padding: 3.5rem 2.5rem;
   width: 100%;
   text-align: center;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
@@ -509,55 +517,57 @@
   margin-top: 1rem;
 }
 
-/* Footer Section */
-.footer {
-  padding: 4rem 5%;
+/* ── Lanyard container (right side) ── */
+.lanyardContainer {
+  height: 600px;
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+
+.lanyardPlaceholder {
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
-  border-top: 1px solid var(--card-border);
-  margin-top: 2rem;
-  position: relative;
-  z-index: 10;
+  justify-content: center;
+  gap: 1rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 1.5rem;
 }
 
-.socialLinks {
-  display: flex;
-  gap: 1.5rem;
+.lanyardSpinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(139, 92, 246, 0.2);
+  border-top-color: #8b5cf6;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
 }
 
-.socialIcon {
-  width: 1.5rem;
-  height: 1.5rem;
+.lanyardHint {
   color: var(--text-secondary);
-  transition: all 0.2s ease;
+  font-size: 0.875rem;
 }
 
-.socialLinks a:hover .socialIcon {
-  color: var(--text-primary);
-  transform: translateY(-2px);
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
-.footerText {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-}
+/* Footer Section — migrado a Tailwind en Footer.tsx */
 
-.heart {
-  color: #ef4444;
-}
-
-.copyright {
-  color: var(--text-secondary);
-  font-size: 0.85rem;
-  opacity: 0.7;
-}
 
 @media (max-width: 1024px) {
   .aboutContent {
     grid-template-columns: 1fr;
     gap: 3rem;
+  }
+  .contactLayout {
+    grid-template-columns: 1fr;
+  }
+  .lanyardContainer {
+    height: 500px;
   }
 }
 

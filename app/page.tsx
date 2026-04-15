@@ -7,6 +7,7 @@ import ProjectsSection from "./components/ProjectsSection";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import { IconGradient } from "./components/Icons";
+import Testimonials from "./components/Testimonials";
 
 export default function Home() {
   return (
@@ -38,6 +39,7 @@ export default function Home() {
           <Hero />
           <About />
           <ProjectsSection />
+          <Testimonials />
           <Contact />
         </main>
         <Footer />

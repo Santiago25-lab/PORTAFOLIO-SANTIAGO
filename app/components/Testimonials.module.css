@@ -1,0 +1,196 @@
+/* ────────────────────────────────────────────────────────────
+   SECTION WRAPPER
+   ──────────────────────────────────────────────────────────── */
+.section {
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ────────────────────────────────────────────────────────────
+   TITLES
+   ──────────────────────────────────────────────────────────── */
+.sectionTitle {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  max-width: 500px;
+  margin: 0 auto 3.5rem;
+  line-height: 1.65;
+}
+
+/* ────────────────────────────────────────────────────────────
+   GRID
+   ──────────────────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* ────────────────────────────────────────────────────────────
+   CARD
+   ──────────────────────────────────────────────────────────── */
+.card {
+  position: relative;
+  overflow: hidden;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
+  cursor: default;
+}
+
+.card:hover {
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow: 0 12px 40px rgba(139, 92, 246, 0.12), 0 2px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px);
+}
+
+/* ────────────────────────────────────────────────────────────
+   SPOTLIGHT OVERLAY
+   ──────────────────────────────────────────────────────────── */
+.spotlight {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* ────────────────────────────────────────────────────────────
+   DECORATIVE QUOTE MARK
+   ──────────────────────────────────────────────────────────── */
+.quoteDecor {
+  position: absolute;
+  top: -0.5rem;
+  left: 1.25rem;
+  font-size: 7rem;
+  line-height: 1;
+  font-family: Georgia, serif;
+  color: rgba(139, 92, 246, 0.12);
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ────────────────────────────────────────────────────────────
+   STARS
+   ──────────────────────────────────────────────────────────── */
+.stars {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 1.25rem;
+  position: relative;
+  z-index: 1;
+}
+
+.starFilled {
+  color: #f59e0b;
+  font-size: 1.1rem;
+}
+
+.starEmpty {
+  color: rgba(255, 255, 255, 0.15);
+  font-size: 1.1rem;
+}
+
+/* ────────────────────────────────────────────────────────────
+   QUOTE TEXT
+   ──────────────────────────────────────────────────────────── */
+.quote {
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  font-style: italic;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+  margin: 0 0 1.5rem;
+  border: none;
+  padding: 0;
+}
+
+/* ────────────────────────────────────────────────────────────
+   DIVIDER
+   ──────────────────────────────────────────────────────────── */
+.divider {
+  height: 1px;
+  background: var(--card-border);
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ────────────────────────────────────────────────────────────
+   PERSON (avatar + name + role)
+   ──────────────────────────────────────────────────────────── */
+.person {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  position: relative;
+  z-index: 1;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: #fff;
+  flex-shrink: 0;
+  letter-spacing: 0.5px;
+  position: relative;   /* necesario para Image fill */
+  overflow: hidden;     /* recorta la foto al círculo */
+  /* Subtle ring */
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.3);
+}
+
+.name {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.role {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+/* ────────────────────────────────────────────────────────────
+   RESPONSIVE
+   ──────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 4rem 1.25rem;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -66,6 +66,11 @@ export const dictionaries = {
       code: "Código",
       demo: "Demo"
     },
+    testimonials: {
+      title: "Lo que dicen",
+      highlight: "de mí",
+      subtitle: "Referencias de personas con las que he tenido el placer de trabajar."
+    },
     contact: {
       title: "¿Trabajamos",
       highlight: "Juntos?",
@@ -153,6 +158,11 @@ export const dictionaries = {
       highlight: "Projects",
       code: "Code",
       demo: "Demo"
+    },
+    testimonials: {
+      title: "What people",
+      highlight: "say about me",
+      subtitle: "References from people I've had the pleasure of working with."
     },
     contact: {
       title: "Let's Work",
