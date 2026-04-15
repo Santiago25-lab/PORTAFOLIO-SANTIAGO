@@ -27,14 +27,14 @@ export interface Testimonial {
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: "t1",
-    name: "Diana Davila",               // ← REEMPLAZA con nombre real
-    role: "Lead Designer · DesignCo",   // ← REEMPLAZA con cargo y empresa
-    initials: "AM",                      // ← REEMPLAZA con iniciales (fallback si no hay foto)
+    name: "Diana Davila",
+    role: "Compañera de emprendimiento",
+    initials: "DD",
     avatarColor: "linear-gradient(135deg, #8b5cf6, #ec4899)",
-    // photo: "/testimonials/ana.jpg",  // ← DESCOMENTA y agrega la ruta de la foto (coloca la imagen en /public/testimonials/)
+    // photo: "/testimonials/diana.jpg",
     quote: {
-      es: "Santiago tiene una capacidad increíble para convertir ideas abstractas en interfaces visuales reales. Trabajar con él fue fluido, profesional y con resultados que superaron mis expectativas.",
-      en: "Santiago has an incredible ability to turn abstract ideas into real visual interfaces. Working with him was smooth, professional, and the results exceeded my expectations.",
+      es: "Es una persona muy dedicada a lo que hace. Como estudiante y emprendedor, se caracteriza por ser constante, disciplinado y siempre enfocado en mejorar.",
+      en: "He is a very dedicated person in what he does. As a student and entrepreneur, he is characterized by being constant, disciplined, and always focused on improving.",
     },
     stars: 5,
   },
