@@ -234,7 +234,7 @@
   overflow-y: auto;
   cursor: default;
 
-  background: rgba(14, 18, 32, 0.97);
+  background: var(--bg-color);
   border-color: rgba(139, 92, 246, 0.35) !important;
   box-shadow:
     0 0 0 1px rgba(139, 92, 246, 0.2),
@@ -273,8 +273,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 10px;
   color: var(--text-secondary);
   cursor: pointer;
@@ -378,14 +378,14 @@
   align-items: flex-start;
   gap: 0.875rem;
   padding: 1rem 1.125rem;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 14px;
   transition: background 0.2s;
 }
 
 .personalItem:hover {
-  background: rgba(255, 255, 255, 0.07);
+  background: var(--card-hover-bg);
 }
 
 .personalEmoji {
@@ -464,7 +464,8 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.22);
+  background: var(--text-secondary);
+  opacity: 0.5;
   border: none;
   cursor: pointer;
   padding: 0;
