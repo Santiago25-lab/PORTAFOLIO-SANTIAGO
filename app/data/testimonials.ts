@@ -27,7 +27,7 @@ export interface Testimonial {
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: "t1",
-    name: "iana Davila",               // ← REEMPLAZA con nombre real
+    name: "Diana Davila",               // ← REEMPLAZA con nombre real
     role: "Lead Designer · DesignCo",   // ← REEMPLAZA con cargo y empresa
     initials: "AM",                      // ← REEMPLAZA con iniciales (fallback si no hay foto)
     avatarColor: "linear-gradient(135deg, #8b5cf6, #ec4899)",
