@@ -19,24 +19,6 @@
   --icon-hover-shadow: rgba(139, 92, 246, 0.8);
 }
 
-.light {
-  --bg-color: #f8fafc;
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --accent-blue: #2563eb;
-  --accent-purple: #7c3aed;
-  --nav-bg: rgba(248, 250, 252, 0.8);
-  --card-bg: #e2e8f0;
-  --card-border: rgba(0, 0, 0, 0.05);
-  --card-hover-bg: #ffffff;
-  --btn-sec-border: rgba(0, 0, 0, 0.2);
-  --btn-sec-hover-bg: rgba(0, 0, 0, 0.05);
-  --btn-sec-hover-border: rgba(0, 0, 0, 0.5);
-  --glow-blur-1: rgba(37, 99, 235, 0.2);
-  --glow-blur-2: rgba(124, 58, 237, 0.2);
-  --icon-hover-shadow: rgba(124, 58, 237, 0.4);
-}
-
 * {
   box-sizing: border-box;
   padding: 0;

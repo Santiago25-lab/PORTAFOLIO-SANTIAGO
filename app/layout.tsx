@@ -31,12 +31,8 @@ export default function RootLayout({
             __html: `
               (function() {
                 try {
-                  var theme = localStorage.getItem('theme');
-                  if (theme === 'light') {
-                    document.documentElement.classList.add('light');
-                  } else {
-                    document.documentElement.classList.remove('light');
-                  }
+                  localStorage.setItem('theme', 'dark');
+                  document.documentElement.classList.remove('light');
                 } catch (e) {}
               })();
             `,
