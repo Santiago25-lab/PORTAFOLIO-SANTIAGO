@@ -178,7 +178,11 @@ const AntigravityInner = ({
 const Antigravity = (props: any) => {
   return (
     <Canvas 
-      camera={{ position: [0, 0, 50], fov: 35 }} 
+      camera={{ position: [0, 0, 50], fov: 35 }}
+      gl={{ alpha: false, antialias: false }}
+      onCreated={({ gl }) => {
+        gl.setClearColor(0x0a0a0a, 1);
+      }}
       style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
     >
       <AntigravityInner {...props} />

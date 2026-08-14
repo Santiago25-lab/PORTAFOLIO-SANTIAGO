@@ -13,6 +13,8 @@ export const metadata: Metadata = {
   description: "Portafolio de Santiago, Desarrollador Web",
 };
 
+import Script from "next/script";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -20,8 +22,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={`${outfit.variable}`} suppressHydrationWarning>
-      <head>
-        <script
+      <head />
+      <body>
+        <Script
+          id="theme-initializer"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
@@ -37,8 +42,6 @@ export default function RootLayout({
             `,
           }}
         />
-      </head>
-      <body>
         <Providers>
           {children}
         </Providers>

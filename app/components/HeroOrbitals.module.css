@@ -1,0 +1,55 @@
+/* ─── Centro de órbitas ─── */
+.orbitalRoot {
+  /* Posicionado sobre la foto: centrado horizontalmente, ~38% desde abajo del hero */
+  position: absolute;
+  left: 50%;
+  bottom: 36%;
+  transform: translate(-50%, 50%);
+  width: 0;
+  height: 0;
+  z-index: 25;
+  pointer-events: none;
+}
+
+/* ─── Cada item orbital ─── */
+.orbitalItem {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* El motion.div de Framer hace el translate X/Y */
+  will-change: transform;
+}
+
+/* ─── Badge / círculo con ícono ─── */
+.badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  /* Centrado sobre el punto orbital */
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.badge:hover {
+  transform: translate(-50%, -50%) scale(1.25);
+}
+
+/* ─── Responsive: ajusta el tamaño en mobile ─── */
+@media (max-width: 640px) {
+  .badge {
+    width: 32px;
+    height: 32px;
+  }
+  .badge svg {
+    width: 15px !important;
+    height: 15px !important;
+  }
+  .orbitalRoot {
+    bottom: 28%;
+  }
+}

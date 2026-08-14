@@ -1,0 +1,395 @@
+/* =========================================================
+   Hero — Oversized Typography Layout
+   ========================================================= */
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  /* Transparente: el canvas de partículas fixed se ve detrás */
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Background subtle radial glow ── */
+.background {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+.backgroundGlow {
+  position: absolute;
+  bottom: -10%;
+  left: 50%;
+  width: 150vw;
+  max-width: 1200px;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(139, 92, 246, 0.05) 0%,
+    rgba(59, 130, 246, 0.03) 35%,
+    transparent 70%
+  );
+  filter: blur(80px);
+}
+
+/* ── Oversized typography (z-index 10) ── */
+.typography {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.typographyInner {
+  width: 100%;
+  text-align: center;
+}
+
+.typographyLine {
+  overflow: hidden;
+}
+
+.bigText {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: clamp(4rem, 16vw, 18vw);
+  font-weight: 900;
+  line-height: 0.82;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  opacity: 0.9;
+  display: block;
+  white-space: nowrap;
+}
+
+/* ── Photo (z-index 20) ── */
+.photoWrapper {
+  pointer-events: none;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  /* Centrado horizontal + pies 15% por debajo del viewport (igual que la referencia) */
+  transform: translateX(-50%) translateY(15%);
+  z-index: 20;
+  /* Tamaños progresivos: mobile → tablet → desktop */
+  width: min(510px, 80vw);
+}
+
+@media (min-width: 768px) {
+  .photoWrapper {
+    width: min(635px, 70vw);
+  }
+}
+
+@media (min-width: 1024px) {
+  .photoWrapper {
+    width: min(720px, 60vw);
+  }
+}
+
+.photoAspect {
+  position: relative;
+  width: 100%;
+  /* aspect-ratio 3/4 → padding-bottom: 133.33% */
+  padding-bottom: 133.33%;
+}
+
+.photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  /* object-contain muestra la figura entera sin recortar */
+  object-fit: contain;
+  object-position: bottom center;
+  /* Sin mask — el PNG ya tiene fondo transparente */
+  filter: drop-shadow(0 0 80px rgba(200, 166, 106, 0.06));
+}
+
+/* ── Top-left details (z-index 30) ── */
+.details {
+  position: absolute;
+  top: 2rem;
+  left: 1.5rem;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 260px;
+}
+
+.availableBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.pingWrapper {
+  position: relative;
+  display: flex;
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+}
+
+.pingRing {
+  position: absolute;
+  display: inline-flex;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--accent-purple);
+  opacity: 0.4;
+  animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.pingDot {
+  position: relative;
+  display: inline-flex;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent-purple);
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.availableText {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.detailsDescription {
+  font-size: 13px;
+  line-height: 2;
+  color: var(--text-secondary);
+  opacity: 0.8;
+}
+
+/* ── Bottom-left socials (z-index 30) ── */
+.socials {
+  position: absolute;
+  bottom: 2rem;
+  left: 1.5rem;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.socialLink {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  opacity: 0.5;
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.socialLink:hover {
+  color: #ffffff;
+  opacity: 1;
+}
+
+/* ── Bottom-right CTA (z-index 30) ── */
+.cta {
+  position: absolute;
+  bottom: 2rem;
+  right: 1.5rem;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.5rem;
+}
+
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  color: #000000;
+  padding: 1.1rem 2rem;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.ctaPrimary:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+}
+
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-purple);
+  text-underline-offset: 6px;
+  opacity: 0.8;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.ctaSecondary:hover {
+  color: #ffffff;
+  opacity: 1;
+}
+
+/* ── Entrance animations ── */
+.fadeUp {
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.fadeUpDelay1 { animation-delay: 0.2s; }
+.fadeUpDelay2 { animation-delay: 0.35s; }
+.fadeUpDelay3 { animation-delay: 0.5s; }
+.fadeUpDelay4 { animation-delay: 0.65s; }
+.fadeUpDelay5 { animation-delay: 0.8s; }
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bigTextAnim {
+  animation: sweepUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.bigTextAnimLine2 {
+  animation-delay: 0.12s;
+}
+
+@keyframes sweepUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 0.9;
+    transform: translateY(0);
+  }
+}
+
+/* ── Responsive ── */
+@media (min-width: 640px) {
+  .details {
+    top: 3rem;
+    left: 3rem;
+  }
+  .socials {
+    bottom: 3rem;
+    left: 3rem;
+  }
+  .cta {
+    bottom: 3rem;
+    right: 3rem;
+  }
+  .ctaPrimary {
+    padding: 1.25rem 3rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .hero {
+    height: 100vh;
+    height: 100svh;
+    justify-content: space-between;
+    padding: 5.5rem 1rem 2rem 1rem;
+  }
+
+  .typography {
+    top: 15%;
+    transform: translateY(0);
+  }
+
+  .bigText {
+    font-size: clamp(3.2rem, 16vw, 5.5rem);
+    letter-spacing: -0.05em;
+  }
+
+  .photoWrapper {
+    width: min(340px, 88vw);
+    transform: translateX(-50%) translateY(10%);
+  }
+
+  .details {
+    top: 5.5rem;
+    left: 1rem;
+    max-width: 200px;
+    gap: 0.5rem;
+  }
+
+  .availableText {
+    font-size: 8.5px;
+    letter-spacing: 0.15em;
+  }
+
+  .socials {
+    bottom: 1.5rem;
+    left: 1rem;
+    gap: 0.5rem;
+    z-index: 35;
+  }
+
+  .socialLink {
+    font-size: 9px;
+  }
+
+  .cta {
+    bottom: 1.5rem;
+    right: 1rem;
+    gap: 0.75rem;
+    align-items: flex-end;
+    z-index: 35;
+  }
+
+  .ctaPrimary {
+    padding: 0.75rem 1.25rem;
+    font-size: 9.5px;
+    letter-spacing: 0.15em;
+  }
+
+  .ctaSecondary {
+    font-size: 9.5px;
+  }
+}

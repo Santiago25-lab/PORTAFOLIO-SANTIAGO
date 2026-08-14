@@ -12,6 +12,7 @@ import Testimonials from "./components/Testimonials";
 export default function Home() {
   return (
     <>
+      {/* Canvas de partículas — fixed, detrás de todo */}
       <div className={styles.canvasContainer}>
         <AntigravityWrapper
           count={300}
@@ -32,11 +33,17 @@ export default function Home() {
         />
       </div>
 
+      <IconGradient />
+
+      {/* Navbar fixed — flota sobre todo */}
+      <Navbar />
+
+      {/* Hero full-width — fuera del contenedor con padding */}
+      <Hero />
+
+      {/* Resto de secciones dentro del wrapper centrado */}
       <div className={styles.pageContainer}>
-        <IconGradient />
-        <Navbar />
         <main>
-          <Hero />
           <About />
           <ProjectsSection />
           <Testimonials />

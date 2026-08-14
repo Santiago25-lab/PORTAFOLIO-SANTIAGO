@@ -2,17 +2,17 @@
 @import "tailwindcss/utilities" layer(utilities);
 
 :root {
-  --bg-color: #0b0f19;
+  --bg-color: #0a0a0a;
   --text-primary: #ffffff;
   --text-secondary: #a1a1aa;
   --accent-blue: #3b82f6;
   --accent-purple: #8b5cf6;
-  --nav-bg: rgba(11, 15, 25, 0.8);
-  --card-bg: rgba(30, 35, 50, 0.4);
-  --card-border: rgba(255, 255, 255, 0.05);
-  --card-hover-bg: rgba(40, 45, 65, 0.8);
+  --nav-bg: rgba(10, 10, 10, 0.85);
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --card-border: rgba(255, 255, 255, 0.07);
+  --card-hover-bg: rgba(255, 255, 255, 0.09);
   --btn-sec-border: rgba(255, 255, 255, 0.2);
-  --btn-sec-hover-bg: rgba(255, 255, 255, 0.05);
+  --btn-sec-hover-bg: rgba(255, 255, 255, 0.07);
   --btn-sec-hover-border: rgba(255, 255, 255, 0.5);
   --glow-blur-1: rgba(77, 164, 255, 0.4);
   --glow-blur-2: rgba(139, 92, 246, 0.4);

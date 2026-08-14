@@ -5,6 +5,8 @@
   padding: 0 5%;
   max-width: 1400px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 /* Navbar — migrado a Tailwind en Navbar.tsx */
@@ -74,6 +76,7 @@
   height: 100vh;
   pointer-events: none;
   z-index: 0;
+  background-color: #0a0a0a;
 }
 
 .heroContent {
@@ -258,6 +261,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .sectionTitle {
@@ -361,6 +366,8 @@
   align-items: center;
   gap: 4rem;
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .projectsGrid {
@@ -374,6 +381,8 @@
 .contact {
   padding: 8rem 0;
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 /* ── 2-column layout ── */

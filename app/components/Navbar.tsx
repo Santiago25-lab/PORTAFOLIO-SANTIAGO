@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import ThemeToggle from "./ThemeToggle";
 import LanguageToggle from "./LanguageToggle";
 import styles from "../page.module.css";
 import { motion } from "framer-motion";
@@ -12,7 +11,8 @@ export default function Navbar() {
 
   return (
     <motion.nav 
-      className={styles.navbar}
+      className={`${styles.navbar} fixed top-0 left-0 right-0 z-50 px-[5%]`}
+      style={{ background: '#0a0a0a', borderBottom: '1px solid rgba(255,255,255,0.06)' }}
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -35,7 +35,6 @@ export default function Navbar() {
         </div>
         <div className={styles.navControls}>
           <LanguageToggle />
-          <ThemeToggle />
         </div>
       </div>
     </motion.nav>
